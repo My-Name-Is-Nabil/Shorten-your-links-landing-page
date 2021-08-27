@@ -1,3 +1,7 @@
+@function min($numbers...) {
+    @return m#{i}n(#{$numbers});
+}
+
 .header{
     display: flex;
     padding: 1.2rem 3.5rem;
@@ -48,10 +52,20 @@
                 color: black;
             }
         }
-        &__burger-menu{
+        &__burger-menu-wrapper{
             display: none;
         }
+        &__burger-menu{
+            display: none;
+            &-menu{
+                display: none;
+            }
+        }
     }
+}
+
+.line{
+    display: none;
 }
 
 @media only screen and (max-width: 800px){
@@ -62,7 +76,7 @@
         }
         &__auth{
             justify-content: flex-end;
-            flex-grow: 2;
+            flex-grow: 1;
             &__login{
                 display: none;
             }
@@ -70,8 +84,14 @@
                 display: none;
             }
             &__burger-menu-wrapper{
+                &:focus-within .header__auth__burger-menu-menu{
+                    visibility: visible;
+                    pointer-events: auto;
+                }
                 height: 33px;
+                display: block;
                 cursor: pointer;
+                position: relative;
             }
             &__burger-menu{
                 display: block;
@@ -80,6 +100,40 @@
                 width: 25px;
                 background-color: hsl(0, 0%, 75%);
                 top: 16px;
+                &-menu{
+                    cursor: default;
+                    visibility: hidden;
+                    display: block;
+                    position: absolute;
+                    transform: translateX(calc(-50vw - min(28.5vw, 106px)));
+                    padding: 1.5rem 0;
+                    background-color: hsl(257, 27%, 29%);
+                    border-radius: 12px;
+                    color: white;
+                    font-size: 1.2rem;
+                    box-sizing: border-box;
+                    width: min(85vw, 300px);
+                    top: 80px;
+                    &__ul{
+                        list-style-type: none;
+                        &__li{
+                            margin: 1.5rem 0;
+                            text-align: center;
+                            &.login{
+                                font-weight: 700;
+                            }
+                            &.sign-up{
+                                background-color: hsl(174, 66%, 64%);
+                                width: 67%;
+                                margin: 0 auto;
+                                border-radius: 17px;
+                                padding: 0.5rem;
+                                box-sizing: border-box;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
                 &::after{
                     content: '';
                     display: block;
@@ -100,5 +154,12 @@
                 }
             }
         }
+    }
+    .line{
+        display: block;
+        height: 1px;
+        width: 70%;
+        margin: 0 auto;
+        background-color:hsl(0, 0%, 75%);
     }
 }
