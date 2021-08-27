@@ -1,0 +1,81 @@
+.url-shortner-wrapper{
+    position: relative;
+}
+.url-shortner{
+    display: flex;
+    justify-content: center;
+    background-color: hsl(257, 27%, 26%);
+    width: 85%;
+    margin: 1rem auto;
+    padding: 0.65rem 0;
+    border-radius: 9px;
+    background-image: url('../images/bg-shorten-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+    background-size: 100% 100%;   
+    &__input{
+        padding: 10px 16px;
+        border: none;
+        margin: 1.5rem;
+        margin-left: 1.45rem;
+        border-radius: 5px;
+        height: 42px;
+        background-color: white;
+        box-sizing: border-box;
+        width: 85%;
+        &::placeholder{
+            color: hsl(257, 7%, 63%);
+        }
+    }
+
+}
+
+.shorten-it{
+    background-color: hsl(180, 66%, 49%);
+    margin: 1.5rem;
+    width: 133px;
+    height: 22px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+    padding-left: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover{
+        background-color: hsl(174, 66%, 64%)
+    }
+}
+
+.grey-background{
+    position: absolute;
+    bottom: 0;
+    top: 55px;
+    left: 0;
+    right: 0;
+    height: 1000px;
+    background-color: hsla(0,0%,83%,0.35);
+    z-index: -1;
+}
+
+@media only screen and (max-width: 800px){
+    .url-shortner{
+        display: block;
+        &__input{
+            width: 89%;
+            margin: 1rem auto;
+            margin-left: 5%;
+            margin-bottom: 0;
+            appearance: none;
+            -moz-appearance: none;
+            outline: none;
+        }
+    }
+    .shorten-it{
+        width: 84%;
+        margin: 1rem auto;
+    }
+    .grey-background{
+        height: 1700px;
+    }
+}

@@ -1,0 +1,64 @@
+.second-section{
+    width: 85%;
+    margin: 8rem auto;
+    text-align: center;
+    position: relative;
+    &__title{
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    &__content{
+        width: 50%;
+        margin: 0 auto;
+        font-size: 0.9rem;
+        color: hsl(257, 7%, 63%);
+    }
+    &__cards{
+        display: flex;
+        justify-content: space-between;
+        margin: 5rem 0;
+        text-align: left;
+    }
+}
+
+.line-across{
+    position: absolute;
+    top: 325px;
+    height: 8px;
+    width: 100%;
+    background-color: hsl(180, 66%, 49%);    
+}
+
+.line-across-vertical{
+    display: none;
+}
+
+@media only screen and (max-width: 800px){
+    .second-section{
+        &__cards{
+            position: relative;
+            display: block;
+            margin-bottom: 0;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+    .line-across{
+        display: none;
+    }
+
+    .line-across-vertical{
+        display: block;
+        position: absolute;
+        width: 8px;
+        height: 80%;
+        top: 50px;
+        left: 50%;
+        background-color: hsl(180, 66%, 49%);    
+    }
+    
+    .card{
+        width: 80%;
+    }
+}

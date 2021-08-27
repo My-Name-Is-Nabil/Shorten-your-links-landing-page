@@ -1,0 +1,104 @@
+.header{
+    display: flex;
+    padding: 1.2rem 3.5rem;
+    padding-right: 1rem;
+    &__logo{
+        padding-top: 6px;
+    }
+    &__nav{
+        width: 65%;
+        padding: 0 2rem;
+        &__ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: left;
+            &__li{
+                color: hsl(257, 7%, 63%);
+                font-size: 0.9rem;
+                margin: 1em;
+                cursor: pointer;
+                &:hover{
+                    color: black;
+                }
+            }
+        }
+    }
+    &__auth{
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+        &__signup{
+            border-radius: 25px;
+            background-color: hsl(180, 66%, 49%);
+            padding: 0.6rem 1.5rem;
+            height: 26px;
+            width: 62px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            &:hover{
+                background-color: hsl(174, 66%, 64%)
+            }
+        }
+        &__login{
+            color: hsl(257, 7%, 63%);
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            &:hover{
+                color: black;
+            }
+        }
+        &__burger-menu{
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .header{
+        padding: 1.2rem;
+        &__nav{
+            display: none;
+        }
+        &__auth{
+            justify-content: flex-end;
+            flex-grow: 2;
+            &__login{
+                display: none;
+            }
+            &__signup{
+                display: none;
+            }
+            &__burger-menu-wrapper{
+                height: 33px;
+                cursor: pointer;
+            }
+            &__burger-menu{
+                display: block;
+                position: relative;
+                height: 4px;
+                width: 25px;
+                background-color: hsl(0, 0%, 75%);
+                top: 16px;
+                &::after{
+                    content: '';
+                    display: block;
+                    position: relative;
+                    width: 25px;
+                    height: 4px;
+                    background-color: hsl(0, 0%, 75%);
+                    top: 4px;
+                }
+                &::before{
+                    content: '';
+                    display: block;
+                    position: relative;
+                    width: 25px;
+                    height: 4px;
+                    background-color: hsl(0, 0%, 75%);
+                    top: -8px;
+                }
+            }
+        }
+    }
+}

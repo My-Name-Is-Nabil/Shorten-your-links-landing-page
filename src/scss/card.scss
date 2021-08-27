@@ -1,0 +1,45 @@
+.card{
+    position: relative;
+    top: calc(var(--order) * 35px);
+    width: 21%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 3rem 2rem;
+    padding-bottom: 1rem;
+    &-title{
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: 1rem 0;
+    }
+    &-content{
+        color: hsl(0, 0%, 75%);
+    }
+    &-icon{
+        position: absolute;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        background-color: hsl(257, 27%, 26%);
+        top: -30px;
+        left: 21px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-image{
+            display: block;
+        }
+    }
+    
+}
+
+@media only screen and (max-width: 800px){
+    .card{
+        top: 0;
+        width: 200px;
+        margin: 4rem auto;
+        &-icon{
+            left: calc(50% - 33px);
+        }
+        text-align: center;
+    }
+}

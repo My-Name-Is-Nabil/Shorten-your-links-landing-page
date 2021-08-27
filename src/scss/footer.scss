@@ -1,0 +1,68 @@
+.footer{
+    padding: 2rem 6rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: hsl(260, 8%, 14%);
+    &__logo{
+        width: 20%;
+        & svg path{
+            fill: white;
+        }
+    }
+    &__nav{
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        &__ul{
+            color: white;
+            list-style-type: none;
+            margin: 0 2rem;
+            &__title{
+                padding-bottom: 1rem;
+            }
+            &__li{
+                color: hsl(257, 7%, 63%);
+                padding: 0.3rem 0;
+                cursor: pointer;
+                &:hover{
+                    color: hsl(174, 66%, 64%)
+                }
+            }
+        }
+    }
+    &__social-media{
+        display: flex;
+        & svg{
+            margin: 0.5rem 0.7rem;            
+            cursor: pointer;
+            &:hover > path{
+                fill:hsl(174, 66%, 64%) 
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .footer{
+        display: block;
+        padding: 2rem;
+        &__logo{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        &__nav{
+            width: 100%;
+            display: block;
+            text-align: center;
+            &__ul{
+                padding: 1rem 0 ;        
+            }
+        }
+        &__social-media{
+            padding-top: 1rem;
+            justify-content: center;
+        }
+    }
+}

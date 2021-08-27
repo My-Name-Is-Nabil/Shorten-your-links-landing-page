@@ -1,0 +1,24 @@
+.boost{
+    background-color: hsl(257, 27%, 26%);
+    background-image: url('../images/bg-boost-desktop.svg');
+    width: 100%;
+    padding: 2.4rem 0.5rem;
+    padding-bottom: 2.1rem;
+    margin-top: 12rem;
+    box-sizing: border-box;
+    &__title{
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: white;
+        text-align: center;
+    }
+    &__get-started{
+        margin: 1rem auto;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .boost{
+        margin-top: 0;
+    }
+}
