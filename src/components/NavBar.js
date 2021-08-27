@@ -29,7 +29,7 @@ export default function Navbar(){
                 <div className="header__auth__signup">
                     Sign Up
                 </div>
-                <div className="header__auth__burger-menu-wrapper" tabindex="0">
+                <div className="header__auth__burger-menu-wrapper" tabIndex="0">
                     <div className="header__auth__burger-menu-menu" ref={menu}>
                         <ul className="header__auth__burger-menu-menu__ul">
                             <li className="header__auth__burger-menu-menu__ul__li">
