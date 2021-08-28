@@ -7,11 +7,12 @@ export default function URLShortner(props){
     
     const input = useRef(null);
     const error = useRef(null);
+    const [height, setHeight] = useState({});
     const [URLs, setURLs] = useState(initialState);
     const [copiedIndex, setCopiedIndex] = useState(null);
 
     const handleClick = index => {
-        if (window.isSecureContext)
+        if (navigator.clipboard && window.isSecureContext)
             navigator.clipboard.writeText(URLs[index].short).then(() => setCopiedIndex(index));
         else{
             let textArea = document.createElement("textarea");
@@ -29,8 +30,17 @@ export default function URLShortner(props){
         }
     }
 
-    useEffect(() => localStorage.setItem('URLs', JSON.stringify(URLs)), [URLs]);
+    useEffect(() => {
+        localStorage.setItem('URLs', JSON.stringify(URLs));
+        setHeight({
+            height: `${-document.querySelector('.grey-background').getBoundingClientRect().top + document.querySelector('.footer').getBoundingClientRect().top}px`,
+        });
+    }, [URLs]);
    
+    useEffect(() => window.onresize = () => setHeight({
+        height: `${-document.querySelector('.grey-background').getBoundingClientRect().top + document.querySelector('.footer').getBoundingClientRect().top}px`,
+    }), []);
+
     const APIEndPoint = 'https://api.shrtco.de/v2/shorten?url=';
     return (
         <div className="url-shortner-wrapper">
@@ -76,7 +86,7 @@ export default function URLShortner(props){
                     
                 </div> 
             </div>
-            <div className="grey-background">
+            <div className="grey-background" style={height}>
             
             </div>
             <div className="urls">
