@@ -5,7 +5,7 @@
     background-color: hsl(257, 27%, 26%);
     width: 85%;
     margin: 1rem auto;
-    padding: 0.65rem 0;
+    padding: 0.2rem 0;
     padding-bottom: 0;
     border-radius: 9px;
     background-image: url('../images/bg-shorten-desktop.svg');
@@ -27,6 +27,8 @@
         box-sizing: border-box;
         width: 85%;
         outline: none;
+        box-sizing: border-box;
+        padding-right: 43px;
         &.error{
             outline: 1px red solid;
         }
@@ -41,7 +43,10 @@
     background-color: hsl(180, 66%, 49%);
     margin: 1.5rem;
     width: 133px;
-    height: 22px;
+    height: 42px;
+    appearance: none;
+    border: none;
+    outline: none;
     padding: 10px 16px;
     border-radius: 6px;
     color: white;
@@ -52,6 +57,21 @@
     &:hover{
         background-color: hsl(174, 66%, 64%)
     }
+    &:disabled,
+    &[disabled]{
+        background-color: hsl(0, 0%, 75%);
+        cursor: default;
+        color: black;
+    }
+}
+
+.loading-icon{
+    position: absolute;
+    height: 43px;
+    width: 141px;
+    top: 35px;
+    right: 330px;
+    transform: scale(0.8);
 }
 
 .grey-background{
@@ -66,7 +86,7 @@
 }
 
 .error-message{
-    padding-left: 1.5rem;
+    padding-left: 1.7rem;
     color: hsl(0, 87%, 67%);
     position: relative;
     top: -10px
@@ -86,11 +106,23 @@
     height: 50px;
     position: relative;
     &-long{
+        display: block;
         width: 60%;
         padding: 10px 0;
+        margin: 0 0.4rem;
+        text-decoration: none;
+        &:visited{
+            color: black;
+        }
     }
     &-short{
+        display: block;
+        color:hsl(174, 66%, 64%);
         padding: 10px 0;
+        text-decoration: none;
+        &:visited{
+            color: hsl(174, 66%, 64%);
+        }
     }
     &-copy{
         background-color: hsl(180, 66%, 49%);
@@ -110,17 +142,31 @@
         position: absolute;
         right: 23px;
     }
+    &-copied{
+        background-color: hsl(257, 27%, 26%);
+        width: 133px;
+        height: 42px;
+        padding: 10px 16px;
+        border-radius: 6px;
+        color: white;
+        text-align: center;
+        padding-left: 12px;
+        box-sizing: border-box;
+        position: absolute;
+        right: 23px;
+    }
 }
 
 @media only screen and (max-width: 800px){
     .url-shortner{
-        padding-bottom: 0.5rem;
+        padding-top: 0.65rem;
+        padding-bottom: 0;
         &__wrapper{
             display: block;
         }
         &__input{
             width: 89%;
-            margin: 1rem auto;
+            margin: 0.5rem auto;
             margin-left: 5%;
             appearance: none;
             -moz-appearance: none;
@@ -131,9 +177,10 @@
     
     .shorten-it{
         width: 89%;
-        margin: 1rem auto;
+        margin: 0.5rem auto;
         box-sizing: border-box;
         height: 45px;
+        margin-left: 5.5%;
     }
 
     .grey-background{
@@ -143,7 +190,7 @@
     .error-message{
         width: 88%;
         margin: 0 auto;
-        padding: 0;
+        padding-top: 0.5rem;
         text-align: center;
     }
 
@@ -158,6 +205,10 @@
             width: 100%;
         }
         &-copy{
+            position: static;
+            margin: 0 auto;
+        }
+        &-copied{
             position: static;
             margin: 0 auto;
         }

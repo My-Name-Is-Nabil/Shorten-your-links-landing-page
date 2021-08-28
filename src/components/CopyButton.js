@@ -1,11 +1,8 @@
-import { useState } from 'react';
-
-export default function CopyButton(){
-    const [isClicked, setIsClicked] = useState(false);
+export default function CopyButton(props){
     return (
-        <div className="url-copy">
-            {isClicked && 'Copied!'}
-            {!isClicked && 'Copy'}
+        <div className={!props.isClicked ? 'url-copy' : 'url-copied'} onClick={() => props.handleClick(props.index)}>
+            {props.isClicked && 'Copied!'}
+            {!props.isClicked && 'Copy'}
         </div>
     )
 }
